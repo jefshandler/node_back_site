@@ -11,10 +11,11 @@
   "author": "JefShandler",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16",
     "sucrase": "^3.21.0"
   }
 }

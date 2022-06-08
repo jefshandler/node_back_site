@@ -1,21 +1,21 @@
-// const express = require('express');
+import express from "express";
+import routes from "./routes";
 
-// const routes = require('./routes')
-import express from 'express';
-
-import routes from './routes';
-
+import "./database";
 
 class App {
-    constructor() {
-        this.app = express();
-        this.routes();
-    }
-    
-    routes() {
-        this.app.use(routes);
-    }
+  constructor() {
+    this.app = express();
+    this.middlewares();
+    this.routes();
+  }
+  middlewares() {
+    this.app.use(express.json());
+  }
+  routes() {
+    this.app.use(routes);
+  }
 }
 
-// module.exports = new App().app;
+//module.exports = new App().app;
 export default new App().app;
