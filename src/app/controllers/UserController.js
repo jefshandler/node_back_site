@@ -1,3 +1,4 @@
+import bcrypt from "bcryptjs";
 import User from "../models/User";
 
 class UserController {
@@ -47,8 +48,10 @@ class UserController {
         message: "Error: Necessário enviar o password com valor!",
       });
     }
-
-    const user = await User.create(req.body, (err) => {
+    //criptografar a senha
+    let dados = req.body;
+    dados.password = await bcrypt.hash(dados.password, 8);    
+    const user = await User.create(dados, (err) => {
       if (err)
         return res.status(400).json({
           error: true,
